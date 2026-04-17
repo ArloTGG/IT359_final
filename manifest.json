@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AI Phishing Scanner",
+  "version": "1.0",
+  "description": "Scans links using Gemini AI to detect phishing attempts.",
+  "permissions": ["contextMenus", "storage"],
+  "host_permissions": ["https://generativelanguage.googleapis.com/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_popup": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ai-phishing-scanner@yourdomain.com"
+    }
+  }
+}
