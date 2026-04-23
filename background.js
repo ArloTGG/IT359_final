@@ -29,6 +29,7 @@ browser.contextMenus.onClicked.addListener(async (info, tab) => {
   }
 });
 
+// Gemini API call to the selceted model as well as the prompt made and used to generate the report 
 async function callGeminiAPI(url, apiKey) {
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
   
