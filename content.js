@@ -1,3 +1,4 @@
+// Provides the alert when scan is performed or with error and what went wrong
 browser.runtime.onMessage.addListener((request) => {
   if (request.action === "showLoading") {
     alert("AI is scanning the link... please wait.");
@@ -8,6 +9,7 @@ browser.runtime.onMessage.addListener((request) => {
   }
 });
 
+// Formatting for popup from scan 
 function displayModal(report, url) {
   const modal = document.createElement("div");
   modal.style = `
@@ -16,7 +18,8 @@ function displayModal(report, url) {
     z-index: 999999; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     font-family: sans-serif; color: #333;
   `;
-  
+
+  // Report formatting
   modal.innerHTML = `
     <h3 style="margin-top:0">AI Phishing Report</h3>
     <p><strong>Link:</strong> <span style="word-break:break-all; font-size:0.8em">${url}</span></p>
