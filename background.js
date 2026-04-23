@@ -30,7 +30,7 @@ browser.contextMenus.onClicked.addListener(async (info, tab) => {
 });
 
 async function callGeminiAPI(url, apiKey) {
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
   
   const prompt = `Analyze this URL for potential phishing or malicious intent: "${url}". 
   Provide a report including:
