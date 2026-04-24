@@ -1,3 +1,4 @@
+// Saves input from input API key
 document.getElementById("save").onclick = () => {
   const key = document.getElementById("apiKey").value;
   browser.storage.local.set({ geminiKey: key }).then(() => {
