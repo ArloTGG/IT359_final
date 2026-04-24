@@ -1,4 +1,4 @@
-// Create the context menu item
+// Creates the context menu
 browser.runtime.onInstalled.addListener(() => {
   browser.contextMenus.create({
     id: "scan-link",
@@ -7,12 +7,12 @@ browser.runtime.onInstalled.addListener(() => {
   });
 });
 
-// Handle the click event
+// Handles the click event
 browser.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "scan-link") {
     const linkUrl = info.linkUrl;
     
-    // Notify the content script that we are starting
+    // Notify the content script that it is starting
     browser.tabs.sendMessage(tab.id, { action: "showLoading" });
 
     try {
@@ -29,7 +29,7 @@ browser.contextMenus.onClicked.addListener(async (info, tab) => {
   }
 });
 
-// Gemini API call to the selceted model as well as the prompt made and used to generate the report 
+// Gemini API call to the selected model as well as the prompt made and used to generate the report 
 async function callGeminiAPI(url, apiKey) {
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
   
